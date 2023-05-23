@@ -3,16 +3,22 @@ import "quill/dist/quill.snow.css";
 import Quill from "quill";
 const TextEditor = () => {
   const TOOLBAR_OPTIONS = [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{ font: [] }],
+    ["bold", "italic", "underline", "strike"],
+    ["blockquote", "code-block"],
     [{ list: "ordered" }, { list: "bullet" }],
-    ["bold", "italic", "underline"],
-    [{ color: [] }, { background: [] }],
     [{ script: "sub" }, { script: "super" }],
-    [{ align: [] }],
+    [{ indent: "-1" }, { indent: "+1" }],
+    [{ direction: "rtl" }],
     ["image", "blockquote", "code-block"],
+    [{ size: ["small", false, "large", "huge"] }],
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ color: [] }, { background: [] }],
+    [{ font: [] }],
+    [{ align: [] }],
     ["clean"],
   ];
+
   const [documentName, setDocumentName] = useState("");
   const wrapperRef = useCallback((wrapper) => {
     if (wrapper === null) return;
@@ -68,7 +74,7 @@ const TextEditor = () => {
                   aria-hidden="true"
                 ></i>
               </div>
-              <button className="px-6  rounded-[100px] bg-blue-200 flex items-center -my-2 ">
+              <button className="px-6  rounded-[100px] bg-blue-200 flex items-center -my-1 font-semibold ">
                 <span class="material-symbols-outlined text-lg ">lock</span>
                 <span>&nbsp;Share</span>
               </button>
@@ -161,7 +167,6 @@ const TextEditor = () => {
                 />
               </a>
             </li>
-
             <p className="material-symbols-outlined ">add</p>
           </ul>
         </div>
