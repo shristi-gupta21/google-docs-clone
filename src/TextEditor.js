@@ -166,7 +166,6 @@ const TextEditor = () => {
           </ul>
         </div>
       </div>
-      {/* https://calendar.google.com/calendar/u/0/r */}
     </>
   );
 };
